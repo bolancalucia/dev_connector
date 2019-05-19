@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://bolancalucia:fesb4583@database-d4dhp.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "secret"
+}
