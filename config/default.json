@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://bolancalucia:fesb4583@database-d4dhp.mongodb.net/test?retryWrites=true",
-  "jwtSecret": "secret"
+  "jwtSecret": "secret",
+  "githubClientId": "3fd33d1bcd6db2e5858e",
+  "githubSecret": "34b3247bf53e9f939bcb88a61e22d4e2f2953b9b"
 }
