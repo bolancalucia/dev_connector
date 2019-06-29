@@ -73,7 +73,7 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      <h1 className='large text-primary'>Edit your profile</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Let's get some information to make your
         profile stand out
@@ -173,7 +173,7 @@ const EditProfile = ({
             type='button'
             className='btn btn-light'
           >
-            {!displaySocialInputs ? 'Add ' : 'Hide'} Social Network Links
+            {!displaySocialInputs ? 'Edit ' : 'Hide'} Social Network Links
           </button>
           <span>Optional</span>
         </div>
