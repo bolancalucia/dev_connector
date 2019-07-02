@@ -2,13 +2,14 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { deleteEducation} from '../../actions/profile';
 
-const Education = ({ education }) => {
+const Education = ({ education, deleteEducation }) => {
   const educations = education.map(edu => (
     <tr key={edu.id}>
       <td>{edu.school}</td>
       <td className='hide-sm'>{edu.degree}</td>
-      <td>
+      <td className='hide-sm-2'>
         <Moment format='YYYY/MM/DD'>{edu.from}</Moment> -{' '}
         {edu.to === null ? (
           ' Now'
@@ -17,31 +18,36 @@ const Education = ({ education }) => {
         )}
       </td>
       <td>
-        <button className='btn btn-danger'>Delete</button>
+        <button onClick ={() => deleteEducation(edu._id)} className='btn btn-danger'>Delete</button>
       </td>
     </tr>
   ));
 
-  return (
-    <Fragment>
-      <h2 className='my-2'>Education Credentials</h2>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>School</th>
-            <th className='hide-sm'>Degree</th>
-            <th className='hide-sm'>Years</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>{educations}</tbody>
-      </table>
-    </Fragment>
-  );
+  if(educations.length === 0) {
+    return( <h2 className='my-12 lead'>No Education added yet.</h2>);
+  } else {
+    return (
+      <Fragment>
+        <h2 className='my-2'>Education Credentials</h2>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>School</th>
+              <th className='hide-sm'>Degree</th>
+              <th className='hide-sm-2'>Years</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>{educations}</tbody>
+        </table>
+      </Fragment>
+    );
+  }
 };
 
 Education.propTypes = {
-  education: PropTypes.array.isRequired
+  education: PropTypes.array.isRequired,
+  deleteEducation: PropTypes.func.isRequired
 };
 
-export default Education;
+export default connect(null, { deleteEducation})(Education);
