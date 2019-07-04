@@ -4,6 +4,10 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteExperience } from '../../actions/profile';
 
+const style = {
+  margin: '1rem 0'
+};
+
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map(exp => (
     <tr key={exp.id}>
@@ -29,7 +33,11 @@ const Experience = ({ experience, deleteExperience }) => {
   ));
 
   if (experiences.length === 0) {
-    return <h2 className='my-2 lead'>No experience added yet.</h2>;
+    return (
+      <h2 className='my-2' style={style}>
+        No Experience Credentials
+      </h2>
+    );
   } else {
     return (
       <Fragment>

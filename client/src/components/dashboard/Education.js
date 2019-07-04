@@ -4,6 +4,10 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteEducation } from '../../actions/profile';
 
+const style = {
+  margin: '1rem 0'
+};
+
 const Education = ({ education, deleteEducation }) => {
   const educations = education.map(edu => (
     <tr key={edu.id}>
@@ -29,7 +33,11 @@ const Education = ({ education, deleteEducation }) => {
   ));
 
   if (educations.length === 0) {
-    return <h2 className='my-2 lead'>No education added yet.</h2>;
+    return (
+      <h2 className='my-2' style={style}>
+        No Education Credentials
+      </h2>
+    );
   } else {
     return (
       <Fragment>
