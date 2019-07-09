@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post';
-import Post from '../post/Post';
 
 const PostItem = ({
   addLike,
@@ -22,10 +21,10 @@ const PostItem = ({
       </Link>
     </div>
     <div>
-      <p className='my-1' style={{ 'margin-bottom': '0px' }}>
+      <p className='my-1' style={{ marginBottom: '0px' }}>
         {text}
       </p>
-      <p className='post-date' style={{ 'margin-bottom': '16px' }}>
+      <p className='post-date' style={{ marginBottom: '16px' }}>
         Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>
       {showActions && (
