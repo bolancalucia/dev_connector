@@ -216,7 +216,7 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     }
 
     // Delete comment and save post
-    comment.remove(); // CHECK FOR ERROR
+    comment.remove();
     await post.save();
     res.json(post.comments);
   } catch (err) {
