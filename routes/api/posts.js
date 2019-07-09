@@ -132,7 +132,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
-    // Check if the post has already been liked
+    // Check if the post has not been liked
     if (
       post.likes.filter(like => like.user.toString() === req.user.id).length ===
       0
@@ -202,7 +202,7 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
 
     // Pull out comment
     const comment = post.comments.find(
-      comment => comment.id.toString() === req.params.comment_id
+      comment => comment.id === req.params.comment_id
     );
 
     // Make sure comment exists
@@ -216,7 +216,7 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     }
 
     // Delete comment and save post
-    comment.remove();
+    comment.remove(); // CHECK FOR ERROR
     await post.save();
     res.json(post.comments);
   } catch (err) {
